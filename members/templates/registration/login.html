@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}LIBRIA| Login {% endblock %}
+{% load bootstrap5 %}
+{% block content%}
+<div class="container d-flex justify-content-center mt-5">
+    <div class="row my-5">
+        <div class="col-md-12">
+            <div class="card mt-3">
+                <div class="card-body" style="width: 22rem;">
+                    <form method="post" class="form" style="box-shadow: none">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        {% buttons %}
+                        <div class="text-center d-grid">
+                            <button type="submit" class="btn btn-black border-warning rounded-pill">Login</button>
+                        </div>
+                        {% endbuttons %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}    

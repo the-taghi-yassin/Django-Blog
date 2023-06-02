@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% block title %}LIBRIA| Add Course {% endblock %}
+{% load bootstrap5 %} 
+{% block content%} 
+{% if user.is_superuser %}
+<div class="container-fluid px-3" >
+    <div class="card mb-3 mx-4">
+        <div class="card-body">
+            <form method="POST" class="form">
+                {% csrf_token %}
+                {{ form.media}}
+                {% bootstrap_form form %}
+                {% buttons %}
+                <div class="text-center d-grid">
+                    <button type="submit" class="btn btn-black text-black border-warning rounded-pill">Submit</button>
+                </div>
+                {% endbuttons %}
+            </form>
+        </div>
+    </div>    
+</div>
+
+
+<script>
+    var name = '{{ user.id }}';
+    document.getElementById('post_user').value = name;
+</script>
+{% endif %}
+
+{% endblock%}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load bootstrap5 %} 
+{% block content%}
+<h1>TAGS</h1>
+<div class="row">
+  <div class="col-lg-8">
+      <div class="row ps-4">
+          <div class="col-sm-12">
+            {% for post in posts %}
+              <div class="card mb-2">
+                  <div class="card-body">
+                    <a style="text-decoration: none;" href="{% url 'detail' post.slug %}"><h5 class="card-title text-black text-uppercase">{{post.title}}</h5></a>
+                  </div>
+              </div>
+            {% endfor %}
+          </div>
+      </div>
+  </div>
+  <div class="col-lg-4 pe-5">
+      <div class="card mb-4">
+          <div class="card-header">Discover more of what matters to you</div>
+          <div class="card-body">
+            {% for mt in posts %}
+                <a style="box-shadow: none" class="btn btn-outline-dark rounded-pill mb-2 px-3" href="{% url 'tagged' mt.slug %}">{{mt}}</a>
+            {% endfor %}
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock%}

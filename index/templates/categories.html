@@ -1,0 +1,52 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load bootstrap5 %} 
+{% block content%}
+
+<div class="container-fluid">
+    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-2">
+        <div class="col-md-2 col-lg-2 pe-3  mb-4 mt-3">
+            <div class="card">
+                <div class="list-group">
+                    {% for cat in cats %}
+                    <a class="list-group-item" href="/cat?categories={{cat.id}}">{{cat.title}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 col-lg-10 mt-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mb-2 g-2" data-masonry='{"percentPosition": true }'>
+                {% for posts in post %}
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                        <h5 class="card-title"><a class="text-dark" style="text-decoration: none;" href="">{{posts.title}}</a></h5>
+                        <p class="card-text">{{posts.description}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav aria-label="Pagination">
+    <ul class="pagination justify-content-center my-4">
+        {% if post.has_previous %}
+            <li class="page-item"><a class="page-link" href="?categories={{catid}}&page={{post.previous_page_number}}"> << </a></li>
+        {% endif %}
+        {% for i in post.paginator.page_range %}
+        {% if post.number == i %}
+            <li class="page-item active"><a class="page-link bg-black" style="box-shadow: none" href="#">{{i}}</a></li>
+        {% else %}
+            <li class="page-item"><a class="page-link" href="?categories={{catid}}&page={{i}}">{{i}}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if post.has_next %}
+            <li class="page-item"><a class="page-link" href="?categories={{catid}}&page={{post.next_page_number}}"> >> </a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+{% endblock%}

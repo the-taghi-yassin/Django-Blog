@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/nav.css' %}" type="text/css">
+  <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+  <script src="/static/js/masonry.pkgd.min.js"></script>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% bootstrap_messages %}
+  <title>{% block title %} Swlnee {% endblock %}</title>
+</head>
+<style>
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  @media screen and (min-width: 575px) {
+    .nav {
+        display: none !important;
+    }
+  }
+</style>
+<body>
+<div class="container-fluid mx-3">
+  <nav class="navbar navbar-light bg-white">
+    <a class="navbar-brand" href="{% url 'home' %}">Swlnee</a>
+    <a class="navbar-brand me-3 d-none d-sm-block" href="{% url 'categories' %}">Categories</a>
+    <form class="col d-flex flex-grow-1 " action="{% url 'search' %}">
+      <input style="box-shadow: none" id="search" class="form-control rounded-pill" name="q" type="search" placeholder="Search" />
+    </form>
+    {% if user.is_authenticated %}
+      <div class="dropdown">
+        <button style="box-shadow: none" type="button" class="btn btn-black rounded-pill text-uppercase me-4" data-bs-toggle="dropdown">
+          {{request.user.username}}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+          {% if user.is_superuser %}
+            <li><a class="dropdown-item" href="{% url 'add' %}">Add Post</a></li>
+          {% endif %}
+          <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+      </div>
+    {% else %}
+    <div class="d-flex d-none d-sm-block">
+      <a style="box-shadow: none" class="btn rounded-pill" href="{% url 'login' %}">Sign in</a>
+      <a style="box-shadow: none" class="btn rounded-pill btn-dark me-3" href="{% url 'register' %}">Register</a> 
+    </div>
+    {% endif %}  
+  </nav>
+</div>
+
+
+{% block content%}
+
+
+
+{% endblock%}
+
+<nav class="nav">
+  <a href="{% url 'category' %}" class="nav__link">
+    <i class="fa-solid fa-list" style="color: #000000;"></i>
+    <span class="nav__text">Categories</span>
+  </a>
+  <a href="{% url 'profile' %}" class="nav__link">
+    <i class="fa-solid fa-user" style="color: #080808;"></i>
+    <span class="nav__text">Profile</span>
+  </a>
+</nav>
+</body>
+</html>
