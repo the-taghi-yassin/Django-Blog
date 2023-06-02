@@ -1,3 +1,5 @@
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeView
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.urls import reverse_lazy
 from .forms import *
@@ -24,3 +26,14 @@ def profile(request):
     cats = Category.objects.all().order_by('-id')
     post = Post.newmanager.all().order_by('-id')
     return render(request,'registration/profile.html',{'post':post, 'cats':cats, 'new': new})
+
+class ProfileEditView(generic.UpdateView):
+    form_class = EditProfileForm
+    template_name = 'registration/profile_edit.html'
+    success_url= reverse_lazy('profile')
+    def get_object(self):
+        return self.request.user
+    
+class PasswordsChangeView(PasswordChangeView):
+    form_class = PasswordChangeForm
+    success_url= reverse_lazy('profile-edit')
