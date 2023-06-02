@@ -29,7 +29,7 @@
   }
 </style>
 <body>
-<div class="container-fluid mx-3">
+<div class="container-fluid mx-2">
   <nav class="navbar navbar-light bg-white">
     <a class="navbar-brand" href="{% url 'home' %}">Swlnee</a>
     <a class="navbar-brand me-3 d-none d-sm-block" href="{% url 'categories' %}">Categories</a>
@@ -37,8 +37,8 @@
       <input style="box-shadow: none" id="search" class="form-control rounded-pill" name="q" type="search" placeholder="Search" />
     </form>
     {% if user.is_authenticated %}
-      <div class="dropdown">
-        <button style="box-shadow: none" type="button" class="btn btn-black rounded-pill text-uppercase me-4" data-bs-toggle="dropdown">
+      <div class="dropstart">
+        <button style="box-shadow: none" type="button" class="btn btn-black rounded-pill text-uppercase me-2" data-bs-toggle="dropdown">
           {{request.user.username}}
         </button>
         <ul class="dropdown-menu">
