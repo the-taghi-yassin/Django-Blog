@@ -9,22 +9,13 @@
         <div class="col">
           <div class="card">
             <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
-              <div class="dropstart position-absolute top-0 end-0 p-3">
-                <button style="box-shadow: none" type="button" class="btn " data-bs-toggle="dropdown">
-                  <i class="fa-solid fa-ellipsis fa-2xl" style="color: #f5f5f5;"></i>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item " href="{% url 'profile-edit' %}">Edit Profile </a></li>
-                  <li><a class="dropdown-item" href="{% url 'add' %}">Logout</a></li>
-                </ul>
-              </div>
               <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
                   alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
                   style="width: 150px; z-index: 1">
               </div>
               <div class="ms-3" style="margin-top: 145px;">
-                <h5 class="text-uppercase">{{request.user.username}}</h5>
+                <h5 class="text-uppercase">@{{request.user.first_name}} {{request.user.last_name}}</h5>
               </div>
             </div>
 

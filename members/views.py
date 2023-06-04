@@ -27,13 +27,14 @@ def profile(request):
     post = Post.newmanager.all().order_by('-id')
     return render(request,'registration/profile.html',{'post':post, 'cats':cats, 'new': new})
 
-class ProfileEditView(generic.UpdateView):
-    form_class = EditProfileForm
-    template_name = 'registration/profile_edit.html'
-    success_url= reverse_lazy('profile')
-    def get_object(self):
-        return self.request.user
     
 class PasswordsChangeView(PasswordChangeView):
     form_class = PasswordChangeForm
     success_url= reverse_lazy('profile-edit')
+
+class SettingsView(generic.UpdateView):
+    form_class = EditProfileForm
+    template_name = 'registration/settings.html'
+    success_url= reverse_lazy('settings')
+    def get_object(self):
+        return self.request.user

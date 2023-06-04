@@ -32,7 +32,7 @@
 <div class="container-fluid mx-2">
   <nav class="navbar navbar-light bg-white">
     <a class="navbar-brand" href="{% url 'home' %}">Swlnee</a>
-    <a class="navbar-brand me-3 d-none d-sm-block" href="{% url 'categories' %}">Categories</a>
+    <a class="navbar-brand me-3 d-none d-sm-block text-size" href="{% url 'categories' %}"><small>Categories</small></a>
     <form class="col d-flex flex-grow-1 " action="{% url 'search' %}">
       <input style="box-shadow: none" id="search" class="form-control rounded-pill" name="q" type="search" placeholder="Search" />
     </form>
@@ -46,6 +46,7 @@
           {% if user.is_superuser %}
             <li><a class="dropdown-item" href="{% url 'add' %}">Add Post</a></li>
           {% endif %}
+          <li><a class="dropdown-item" href="{% url 'settings' %}">Settings</a></li>
           <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
         </ul>
       </div>

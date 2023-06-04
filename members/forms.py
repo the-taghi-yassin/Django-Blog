@@ -26,10 +26,17 @@ class SignUpForm(UserCreationForm):
 
 class EditProfileForm(UserChangeForm):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control','style': 'box-shadow: none'}))
-    full_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class':'form-control' ,'style': 'box-shadow: none'}))
     first_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class':'form-control' ,'style': 'box-shadow: none'}))
     last_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class':'form-control' ,'style': 'box-shadow: none'}))
     
     class Meta:
         model = User
         fields = ['username', "first_name", "last_name", "email"]
+
+    def __init__(self, *args, **kwargs):
+        super(EditProfileForm, self).__init__(*args, **kwargs)
+
+        for fieldname in ['username']:
+            self.fields[fieldname].help_text = None
+        del self.fields['password']
+

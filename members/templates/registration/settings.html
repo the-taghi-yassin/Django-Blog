@@ -15,16 +15,14 @@
         </div>
         <div class="col-md-10 col-lg-10 mt-3">
             <div class="card mb-4">
-                <div class="card-header">Change Password</div>
+                <div class="card-header">Account Details</div>
                 <div class="card-body">
                     <form method="post" class="form" style="box-shadow: none">
                         {% csrf_token %}
                         {% bootstrap_form form %}
-                        {% buttons %}
                         <div class="text-center d-grid">
-                            <button type="submit" class="btn btn-black border-warning rounded-pill">Login</button>
+                            <button type="submit" class="btn btn-black border-warning rounded-pill">Save Changes</button>
                         </div>
-                        {% endbuttons %}
                     </form>
                 </div>
             </div>
@@ -33,4 +31,3 @@
 </div>
 
 {% endblock%}    
-
