@@ -32,7 +32,9 @@
 <div class="container-fluid mx-2">
   <nav class="navbar navbar-light bg-white">
     <a class="navbar-brand" href="{% url 'home' %}">Swlnee</a>
+    {% if user.is_superuser %}
     <a class="navbar-brand me-3 d-none d-sm-block text-size" href="{% url 'categories' %}"><small>Categories</small></a>
+    {% endif %}
     <form class="col d-flex flex-grow-1 " action="{% url 'search' %}">
       <input style="box-shadow: none" id="search" class="form-control rounded-pill" name="q" type="search" placeholder="Search" />
     </form>

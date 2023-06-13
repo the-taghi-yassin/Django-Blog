@@ -2,7 +2,7 @@
 {% load static %}
 {% load bootstrap5 %} 
 {% block content%}
-
+{% if user.is_superuser %}
 <div class="container-fluid px-3" >
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-2 g-2" data-masonry='{"percentPosition": true }'>
         {% for posts in post %}
@@ -35,4 +35,5 @@
         {% endif %}
     </ul>
 </nav>
+{% endif %}
 {% endblock%}

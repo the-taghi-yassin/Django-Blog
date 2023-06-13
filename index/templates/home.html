@@ -2,7 +2,7 @@
 {% load static %}
 {% load bootstrap5 %} 
 {% block content%}
-
+{% if user.is_superuser %}
 <div class="container-fluid px-3" >
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-2 g-2" data-masonry='{"percentPosition": true }'>
         {% for posts in post %}
@@ -35,4 +35,9 @@
         {% endif %}
     </ul>
 </nav>
+{% endif %}
+<div class="container text-center mt-5">
+    <h1>Welcom To My Blog!</h1>
+    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, necessitatibus, cumque at commodi cupiditate facilis nemo, quod eius dicta id fuga totam. Perferendis tempore iste eum fugit ratione odit cupiditate?</h3>
+</div>
 {% endblock%}
