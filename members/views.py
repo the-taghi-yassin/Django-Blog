@@ -30,7 +30,7 @@ def profile(request):
     
 class PasswordsChangeView(PasswordChangeView):
     form_class = PasswordChangeForm
-    success_url= reverse_lazy('profile-edit')
+    success_url= reverse_lazy('login')
 
 class SettingsView(generic.UpdateView):
     form_class = EditProfileForm
