@@ -1,12 +1,12 @@
-## Django-Blog
+# Django-Blog
 
-# User registration and authentication system.
+## User registration and authentication system.
 
-# Create, edit, and publish blog posts with a rich text editor.
+## Create, edit, and publish blog posts with a rich text editor.
 
-# Categorize posts and add tags for easy navigation.
+## Categorize posts and add tags for easy navigation.
 
-# Implement a search feature to find specific blog posts.
+## Implement a search feature to find specific blog posts.
 
 ![sign in](https://github.com/the-taghi-yassin/Django-Blog/assets/133910287/0ddc98ad-3034-426d-a013-5515ce0af072)
 ![Register](https://github.com/the-taghi-yassin/Django-Blog/assets/133910287/30c1b946-3962-46c7-ad2b-5dd9cef4adb6)
