@@ -12,4 +12,4 @@
 ![Category](https://github.com/the-taghi-yassin/Django-Blog/assets/133910287/0851120b-bd73-4792-923d-eb7a73ceb11e)
 ·	Implement a search feature to find specific blog posts.
 
-![Blog-Django](https://github.com/the-taghi-yassin/Django-Blog/assets/133910287/18c2f379-ed28-4793-b45c-1e37a3207e25)
+![blog](https://github.com/the-taghi-yassin/Django-Blog/assets/133910287/671ecffb-7a1e-47cd-8320-f7e675b01d07)
